@@ -1,11 +1,18 @@
-<div>
-  <table></table>
-  <div class="label">branch name</div>
-  <div class="value">{{request.branchName}} </div>
-  <div class="label">PR author</div>
-  <div class="value">{{request.master}}</div>
-  <div class="label">reviewers</div>
-  <div class="value">{{request.reviewers}}</div>
-  <div class="label">state</div>
-  <div class="value">{{request.state}}</div>
+<div class="grid-container">
+  <app-label label="Branch name"></app-label>
+  <app-value [value]="request.branchName"></app-value>
+
+  <app-label label="PR author"></app-label>
+  <app-value [value]="request.master"></app-value>
+</div>
+<div class="reviewersBlock">
+  <app-label label="Reviewers"></app-label>
+  <div class="reviewersBlock" *ngFor="let reviewer of request.reviewers">
+    <app-reviewer [reviewer]="reviewer"></app-reviewer>
+  </div>
+</div>
+
+<div class="grid-container">
+  <app-label label="State"></app-label>
+  <app-value [value]="request.state"></app-value>
 </div>
