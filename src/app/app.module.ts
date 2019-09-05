@@ -7,6 +7,7 @@ import {CardComponent} from './card/card.component';
 import {ReviewerComponent} from './reviewer/reviewer.component';
 import {LabelComponent} from './label/label.component';
 import {ValueComponent} from './value/value.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {ValueComponent} from './value/value.component';
     ValueComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
