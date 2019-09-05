@@ -23,7 +23,7 @@ export class DashboardComponent implements OnInit {
     //   .subscribe((data: any) => this.pullRequests = data);
     // real backend request
     this.service
-      .getPullRequests()
+      .pullRequests
       .subscribe((data) => this.pullRequests = data);
   }
 }

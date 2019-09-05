@@ -6,10 +6,16 @@ import {Observable, ObservedValueOf, of} from 'rxjs';
 import {PullRequest} from '../model/PullRequest';
 
 const url = environment.backendUrl;
+import {interval} from 'rxjs';
+import {switchMap, tap} from 'rxjs/operators';
 
 @Injectable()
 export class BackendService {
 
+ readonly pullRequests = interval(1000).pipe(
+   switchMap(_ => this.getPullRequests()),
+   tap(_ => console.log('xxxx'))
+ );
   constructor(private http: HttpClient) {
   }
 
